@@ -67,7 +67,7 @@ class HttpTest extends Command
         $method = $this->option('method');
         $this->info('http 并发请求 测试');
 
-        $concurrent = 500;
+        $concurrent = 200;
         while (true) {
             $process = new \swoole_process(function () use ($concurrent, $url, $method) {
                 for ($i = 1; $i <= $concurrent; $i++) {
@@ -252,7 +252,6 @@ class HttpTest extends Command
         if (empty($ipdata)) {
             throw new \Exception("get ips, ip is empty ....");
         }
-        dd(count($ipdata));
         return $ipdata;
     }
 
